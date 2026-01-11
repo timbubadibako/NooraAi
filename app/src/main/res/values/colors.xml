@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary palette -->
+    <color name="primary_color">#0EA5A4</color>
+    <color name="primary_50">#52007F7D</color><!-- teal-ish -->
+    <color name="plain_color">#E2E8F0</color>        <!-- teal-ish -->
+
+    <color name="primary_variant">#007F7D</color>
+    <color name="secondary_color">#06B6D4</color>
+    <color name="purple_500">#6200EE</color>
+
+    <color name="text_secondary">#708189</color>
+    <color name="divider">#E6ECEC</color>
+
+    <!-- Surface / background -->
+    <color name="background_light">#F6F9FB</color>
+    <color name="card_white">#FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+
+    <color name="playing_card_bg">#96E3DA</color> <!-- contoh warna lembut -->
+    <color name="last_read_highlight">#CFF9F6</color> <!-- contoh warna lembut -->
+
+    <color name="preview_card_bg">#FFFBE8D9</color>
+    <!-- Text / muted -->
+    <color name="text_primary">#0F172A</color>
+    <color name="muted_text">#6B7280</color>
+
+    <color name="prayer_green">#0EA28A</color>    <!-- contoh warna hijau di Figma -->
+    <color name="icon_gray">#475569</color>       <!-- contoh slate color dari Figma -->
+    <color name="icon_muted">#98A1AD</color>
+
+    <!-- Accent / status -->
+    <color name="success">#16A34A</color>
+    <color name="warning">#F59E0B</color>
+
+    <color name="icon_on_circle">#FFFFFF</color>
+
+    <!-- Generic -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
+

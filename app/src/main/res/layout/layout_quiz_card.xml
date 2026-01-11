@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/quizCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="12dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_check_card"
+        android:padding="16dp">
+
+        <!-- Header row: title (left) + stats (right) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvQuizTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Selesaikan Quiz Harian"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="12dp">
+
+                <ImageView
+                    android:id="@+id/imgQuizStar"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/star"
+                    android:contentDescription="star" />
+
+                <TextView
+                    android:id="@+id/tvQuizStarCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="0"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imgQuizHeart"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/heart"
+                    android:contentDescription="heart" />
+
+                <TextView
+                    android:id="@+id/tvQuizHeartCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="1"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- small lesson badge -->
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuizBadge"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:background="@drawable/level_pils_primary"-->
+<!--            android:paddingLeft="8dp"-->
+<!--            android:paddingRight="8dp"-->
+<!--            android:text="Lesson 1"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="12sp" />-->
+
+        <TextView
+            android:id="@+id/tvQuizBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingVertical="4dp"
+            android:text="Daily Quiz 1"
+            android:textSize="12sp"
+            android:textColor="@color/primary_color"
+            android:background="@drawable/level_pils_primary"
+            android:layout_gravity="top|start"/>
+
+        <!-- Question text -->
+        <TextView
+            android:id="@+id/tvQuizQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dengarkan bacaan berikut ini. Apa hukum tajwid yang terdengar pada potongan ayat tersebut?"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Audio button centered -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/btnQuizAudio"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_circle_primary"
+                android:src="@drawable/speaker"
+                android:scaleType="centerInside"
+                android:padding="14dp"
+                android:contentDescription="Play audio"
+                android:tint="@android:color/white"
+                android:adjustViewBounds="true" />
+        </FrameLayout>
+
+        <!-- Options: two rows with two AppCompatButtons each -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_tab_inactive"
+                    android:backgroundTint="@null"
+                    android:text="Idzhar"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_tab_inactive"
+                    android:backgroundTint="@null"
+                    android:text="Iqlab"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_tab_inactive"
+                    android:backgroundTint="@null"
+                    android:text="Ikhfa"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_tab_inactive"
+                    android:backgroundTint="@null"
+                    android:text="Idgham"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

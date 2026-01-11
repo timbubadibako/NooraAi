@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/learn_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Wrap header + content in a vertical container so header sits above scroll content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/topHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/card_white"
+            android:elevation="2dp">
+
+            <!-- icons + location row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/location_chip"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_location_chip"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivLocationSmall"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/location"
+                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/icon_gray"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvLocationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kuningan, Jawa Barat"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivCompass"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/compass"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivBell"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/bell"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/profile"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- title / subtitle -->
+            <TextView
+                android:id="@+id/tvLearnTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navigasi Surat"
+                android:textColor="@color/primary_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tvGreeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cari Surat"
+                android:textSize="14sp"
+                android:textColor="@color/muted_text"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            android:paddingBottom="72dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp">
+
+                <!-- Progress tracker / CTA -->
+                <LinearLayout
+                    android:id="@+id/cardTrackProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_card_gradient"
+                    android:elevation="2dp"
+                    android:clipToPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTrackTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lacak Progres Ngaji-mu"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tvTrackSubtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat kemajuan belajarmu dan lanjutkan dari titik terakhir"
+                            android:textSize="13sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnTrackStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/level_pils_white"
+                        android:paddingLeft="18dp"
+                        android:paddingRight="18dp"
+                        android:paddingVertical="8dp"
+                        android:text="Mulai"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <!-- Last-read + Continue reading cards -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/cardLastRead"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="84dp"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_list_card"
+                        android:elevation="2dp"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/tvLastLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Penanda Surat"
+                            android:textSize="12sp"
+                            android:textColor="@color/primary_color"/>
+
+                        <TextView
+                            android:id="@+id/tvLastSurahName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surah Yasin"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginTop="6dp"/>
+
+                        <TextView
+                            android:id="@+id/tvLastSurahAyat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ayat 11"
+                            android:textSize="12sp"
+                            android:textColor="@color/muted_text"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardContinue"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="84dp"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_list_card"
+                        android:elevation="2dp">
+
+                        <TextView
+                            android:id="@+id/tvContinueLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lanjutkan Bacaan"
+                            android:textSize="12sp"
+                            android:textColor="@color/primary_color"/>
+
+                        <TextView
+                            android:id="@+id/tvContinueSurahName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surah Yasin"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginTop="6dp"/>
+
+                        <TextView
+                            android:id="@+id/tvContinueSurahAyat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ayat 50"
+                            android:textSize="12sp"
+                            android:textColor="@color/muted_text"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Select Surah + Ayat (dropdown-like) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:id="@+id/selectSurah"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_list_card"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivQuran"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/quran"
+                            android:scaleType="centerInside"
+                            android:paddingRight="0dp"
+                            android:contentDescription="Quran"
+                            android:tint="@color/primary_color"
+                            android:adjustViewBounds="true" />
+
+                        <TextView
+                            android:id="@+id/tvSelectSurah"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="Al-Fatihah"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/ivSurahDropdown"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/chevron_down"
+                            app:tint="@color/icon_gray"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/selectAyat"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_list_card"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:layout_marginStart="8dp">
+
+                        <ImageView
+                            android:id="@+id/ivHashtag"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/hashtag"
+                            android:scaleType="centerInside"
+                            android:paddingRight="0dp"
+                            android:contentDescription="Quran"
+                            android:tint="@color/primary_color"
+                            android:adjustViewBounds="true" />
+
+                        <!-- two compact inputs "Dari - Sampai" -->
+                        <EditText
+                            android:id="@+id/etAyatFrom"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="4dp"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:hint="Dari"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:padding="4dp"
+                            android:maxLines="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=" - "
+                            android:gravity="center"
+                            android:textColor="@color/primary_color"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etAyatTo"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:hint="Sampai"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:padding="4dp"
+                            android:maxLines="1" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Search button -->
+                <Button
+                    android:id="@+id/btnSearchSurah"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cari Surat"
+                    android:background="@drawable/bg_primary_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Popular surah section title -->
+                <TextView
+                    android:id="@+id/tvPopularSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar Surat"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- RecyclerView untuk daftar surat populer (1,18,36,55,56,67) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSurahList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"/>
+
+                <!-- spacing at bottom -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

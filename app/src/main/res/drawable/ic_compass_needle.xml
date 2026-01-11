@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Scaled & centered conversion of the provided SVG.
+     Viewbox scaled to fit a 260x260 drawable while preserving aspect ratio.
+     The original SVG (33 x 209) is scaled uniformly (scale = 260 / 209 ≈ 1.244)
+     and translated horizontally so it is centered in the 260x260 canvas.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="260dp"
+    android:viewportWidth="260"
+    android:viewportHeight="260">
+
+    <!-- Group applies uniform scale and horizontal translation so the SVG (33x209)
+         is centered inside the 260x260 viewport without distortion. -->
+    <group
+        android:translateX="109.474"
+        android:translateY="0"
+        android:scaleX="1.244021"
+        android:scaleY="1.244021">
+
+        <!-- Top (north) triangle -->
+        <path
+            android:fillColor="#0D9488"
+            android:pathData="M15.2635 7.29422 C15.4202 6.14037 17.0885 6.14037 17.2453 7.29422 L30.1769 102.487 C30.2584 103.087 29.7918 103.622 29.186 103.622 H3.3227 C2.71692 103.622 2.25026 103.087 2.3318 102.487 L15.2635 7.29422 Z" />
+
+        <!-- Bottom (south) tail -->
+        <path
+            android:fillColor="#475569"
+            android:pathData="M15.2635 200.762 C15.4202 201.915 17.0885 201.915 17.2453 200.762 L30.1769 105.569 C30.2584 104.969 29.7918 104.434 29.186 104.434 H3.3227 C2.71692 104.434 2.25026 104.969 2.3318 105.569 L15.2635 200.762 Z" />
+    </group>
+</vector>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="260dp"
+    android:viewportWidth="260"
+    android:viewportHeight="260">
+    <!-- simple circular dial (stylized). You can replace with a nicer asset -->
+    <path
+        android:fillColor="#EEF6F7"
+        android:pathData="M130,0 A130,130 0 1,0 129.99,0 Z" />
+    <!-- ticks : as simple rings / you can replace with a real image -->
+    <path
+        android:strokeColor="#DDEAF0"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M10,130 L20,130" />
+    <!-- Note: for production use a proper PNG/SVG asset with ticks -->
+</vector>

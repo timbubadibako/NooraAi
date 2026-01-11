@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wrap each ayat in a subtle card for better separation and readability -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/card_white"
+    app:cardUseCompatPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="top">
+
+        <!-- Left: badge with decorative drawable and verse number centered -->
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="14dp"
+            android:layout_gravity="top">
+
+            <ImageView
+                android:id="@+id/ivAyatPlain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ayat_plain"
+                android:contentDescription="ayat badge" />
+
+            <TextView
+                android:id="@+id/tvAyatBadgeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color" />
+        </FrameLayout>
+
+        <!-- Right: verse content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Arabic text:  use custom Arabic font in res/font/amiri_quran.ttf -->
+            <TextView
+                android:id="@+id/tvAyatText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textColor="@color/text_primary"
+                android:gravity="end"
+                android:textDirection="ltr"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/amiri_quran"
+                android:text="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" />
+
+            <!-- Transliteration / small latin -->
+            <TextView
+                android:id="@+id/tvAyatLatin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:layout_marginTop="12dp"
+                android:textDirection="rtl"
+                android:textColor="@color/text_secondary"
+                android:text="Bismillāhir-raḥmānir-raḥīm" />
+
+            <!-- Translation text -->
+            <TextView
+                android:id="@+id/tvAyatTranslate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textDirection="rtl"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:text="Dengan nama Allah Yang Maha Pengasih, Maha Penyayang." />
+
+            <!-- Action row: play icon and save icon on right -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end|center_vertical"
+                android:layout_marginTop="10dp"
+                android:paddingTop="4dp">
+
+                <!-- save icon (left of play) -->
+                <ImageView
+                    android:id="@+id/ivAyatSave"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/mark"
+                    android:contentDescription="Simpan ayat"
+                    android:tint="@color/primary_color"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:layout_marginEnd="8dp"/>
+
+                <!-- play icon -->
+                <ImageView
+                    android:id="@+id/ivAyatPlay"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_play_circle"
+                    android:contentDescription="Play ayat"
+                    android:tint="@color/primary_color"
+                    android:padding="6dp"
+                    android:background="@drawable/bg_icon_circle" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

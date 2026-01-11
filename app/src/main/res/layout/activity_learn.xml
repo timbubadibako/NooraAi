@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/learn_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Wrap header + content in a vertical container so header sits above scroll content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/topHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/card_white"
+            android:elevation="2dp">
+
+            <!-- fixed-height top row so icons always vertically aligned -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Location chip: use an ImageView + TextView so icon is scaled to a small size -->
+                <LinearLayout
+                    android:id="@+id/location_chip"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_location_chip"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivLocationSmall"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/location"
+                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/icon_gray"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvLocationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kota, Provinsi"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <!-- Icons on the right (ensure scaleType + adjustViewBounds so PNG fits) -->
+                <ImageView
+                    android:id="@+id/ivCompass"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/compass"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivBell"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/bell"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/profile"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvLearnTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pembelajaran"
+                android:textColor="@color/primary_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tvGreeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menu Pembelajaran"
+                android:textSize="14sp"
+                android:textColor="@color/muted_text"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Content (below header) -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            android:paddingBottom="72dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp">
+
+                <!-- tabs: full-width 3 buttons (each width=0 + weight=1) -->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/lessons_tab_row_container"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="64dp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_marginTop="0dp"-->
+<!--                    android:gravity="center_vertical">-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/btnLesson1"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:background="@drawable/tab_rectangle_active"-->
+<!--                        android:text="IQRA 1"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@android:color/white"-->
+<!--                        android:gravity="center" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/btnLesson2"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:background="@drawable/tab_rectangle_inactive"-->
+<!--                        android:text="IQRA 2"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@color/text_primary"-->
+<!--                        android:gravity="center" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/btnLesson3"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:background="@drawable/tab_rectangle_inactive"-->
+<!--                        android:text="IQRA 3"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@color/text_primary"-->
+<!--                        android:gravity="center" />-->
+<!--                </LinearLayout>-->
+
+                <HorizontalScrollView
+                    android:id="@+id/lessonsTabScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:fillViewport="false"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:layout_marginTop="-8dp">
+
+                    <!-- Inner linear layout where buttons will be added dynamically.
+                         Keep the id lessons_tab_row_container so existing code references still match. -->
+                    <LinearLayout
+                        android:id="@+id/lessons_tab_row_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp" />
+                </HorizontalScrollView>
+
+                <!-- short description -->
+                <TextView
+                    android:id="@+id/tvLessonIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Bangun dasar yang kuat dengan mengenal dan berlatih membaca huruf hijaiyah sebagai langkah awal"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+
+                <!-- progress + exam row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:weightSum="2">
+
+                    <!-- progress card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardProgress"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="12dp"
+                            android:background="@drawable/bg_check_card">
+
+                            <ImageView
+                                android:id="@+id/tvProgressIcon"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="10dp"
+                                android:background="@drawable/bg_circle_primary"
+                                android:src="@drawable/open_book"
+                                android:tint="@color/white"
+                                android:gravity="center" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="12dp">
+
+                                <TextView
+                                    android:id="@+id/tvProgressTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 dari 5 Materi"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- exam card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardExam"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:background="@drawable/bg_check_card">
+
+                            <ImageView
+                                android:id="@+id/tvExamIcon"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_circle_primary"
+                                android:padding="9dp"
+                                android:src="@drawable/exam"
+                                android:tint="@android:color/white"
+                                android:gravity="center" />
+
+                            <TextView
+                                android:id="@+id/tvExamLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Ujian Lesson"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- list of materials for current lesson -->
+                <TextView
+                    android:id="@+id/tvMaterialsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Daftar Materi"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMaterials"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

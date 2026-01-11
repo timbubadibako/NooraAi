@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/surah_detail_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Top bar: plain LinearLayout (no Toolbar, no ?attr) -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="@color/card_white"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:gravity="center_vertical"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Back icon (left) -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:src="@drawable/chevron_left"
+            android:contentDescription="Kembali"
+            android:background="@drawable/bg_icon_circle"
+            android:scaleType="centerInside" />
+
+        <!-- title + subtitle container -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/tvSurahTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Al-Fatihah"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvSurahInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Makkhiyah • 7 Ayat"
+                android:textSize="12sp"
+                android:textColor="@color/muted_text" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnDropdown"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/chevron_down"
+            android:contentDescription="Opsi"
+            android:background="@drawable/bg_icon_circle"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/btnFont"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="Aa"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/bg_icon_circle" />
+    </LinearLayout>
+
+    <!-- small progress indicator overlay near the toolbar (toggled by code) -->
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/topBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Accent bar below header -->
+    <View
+        android:id="@+id/accent_bar"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:background="@color/primary_color"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Ayat list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAyahs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toBottomOf="@id/accent_bar"
+        app:layout_constraintBottom_toTopOf="@+id/player_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="vertical" />
+
+    <!-- Replace the CardView block with this FrameLayout-based player bar (no CardView) -->
+    <FrameLayout
+        android:id="@+id/player_bar"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_margin="8dp"
+        android:clipToPadding="false"
+        android:layoutDirection="ltr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="4dp"
+        android:background="@drawable/bg_bottom_nav_container">
+
+        <!-- Rounded background with elevation-like shadow via elevation property -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="6dp"
+            android:translationZ="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            >
+
+            <!-- left: collapse handle -->
+            <ImageView
+                android:id="@+id/btnSelectQari"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/chevron_up"
+                android:contentDescription="player_collapse"
+                app:tint="@color/primary_color"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginRight="8dp"/>
+
+            <!-- center: title + qari -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:id="@+id/player_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Al-Fatihah"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/player_qari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Misyari Rasyid"
+                    android:textSize="12sp"
+                    android:textColor="@color/muted_text"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <!-- right: controls (each control uses circular bg for better tap area) -->
+            <ImageView
+                android:id="@+id/btnPrev"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/previus"
+                android:contentDescription="@string/player_prev"
+                android:tint="@color/text_secondary"
+                android:padding="6dp"
+                android:background="@drawable/bg_control_circle"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/btnPlayPause"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/media_play"
+                android:contentDescription="@string/player_play_pause"
+                android:tint="@color/primary_color"
+                android:padding="12dp"
+                android:background="@drawable/bg_control_circle_accent"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/btnNext"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/next"
+                android:contentDescription="@string/player_next"
+                android:tint="@color/text_secondary"
+                android:padding="8dp"
+                android:background="@drawable/bg_control_circle"
+                android:layout_marginEnd="8dp" />
+            </LinearLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_bottom_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="76dp"
+    android:layout_gravity="bottom"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@android:color/transparent">
+
+    <!-- primary-colored rounded background -->
+    <View
+        android:id="@+id/bg_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_bottom_nav_container" />
+
+    <LinearLayout
+        android:id="@+id/nav_row"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="4">
+
+        <!-- ITEM 0 -->
+        <FrameLayout
+            android:id="@+id/item_0"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+
+            <!-- selected pill (primary) -->
+            <LinearLayout
+                android:id="@+id/sel_0"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_selected_pill">
+
+                <ImageView
+                    android:id="@+id/icon_0_sel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/home"
+                    android:tint="@color/primary_color" />
+
+                <TextView
+                    android:id="@+id/label_0_sel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Beranda"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_color"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- icon only (non selected) -->
+            <ImageView
+                android:id="@+id/icon_0"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/home"
+                android:tint="@color/primary_color" />
+        </FrameLayout>
+
+        <!-- ITEM 1 -->
+        <FrameLayout
+            android:id="@+id/item_1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:id="@+id/sel_1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_selected_pill">
+
+                <ImageView
+                    android:id="@+id/icon_1_sel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/learn"
+                    android:tint="@color/primary_color" />
+
+                <TextView
+                    android:id="@+id/label_1_sel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Belajar"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_color"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/learn"
+                android:tint="@color/primary_color" />
+        </FrameLayout>
+
+        <!-- ITEM 2 -->
+        <FrameLayout
+            android:id="@+id/item_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:id="@+id/sel_2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_selected_pill">
+
+                <ImageView
+                    android:id="@+id/icon_2_sel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/cite"
+                    android:tint="@color/primary_color" />
+
+                <TextView
+                    android:id="@+id/label_2_sel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Mengaji"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_color"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cite"
+                android:tint="@color/primary_color" />
+        </FrameLayout>
+
+        <!-- ITEM 3 -->
+        <FrameLayout
+            android:id="@+id/item_3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:id="@+id/sel_3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_selected_pill">
+
+                <ImageView
+                    android:id="@+id/icon_3_sel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/settings"
+                    android:tint="@color/primary_color" />
+
+                <TextView
+                    android:id="@+id/label_3_sel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Setelan"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_color"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/settings"
+                android:tint="@color/primary_color" />
+        </FrameLayout>
+
+    </LinearLayout>
+</FrameLayout>

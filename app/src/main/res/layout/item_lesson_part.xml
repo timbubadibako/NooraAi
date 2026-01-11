@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_lesson_part_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginHorizontal="16dp"
+    android:paddingTop="24dp"
+    android:paddingHorizontal="12dp"
+    android:paddingBottom="12dp"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivUnlock"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/unlocked"
+            android:tint="?attr/colorControlNormal"
+            android:contentDescription="Terbuka" />
+    </LinearLayout>
+    <!-- Left: vertical texts -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvPartTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Judul Bagian"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvPartSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi singkat atau durasi"
+            android:textSize="13sp"
+            android:textColor="@color/muted_text"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <!-- Right: optional duration / chevron -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvPartMeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="@color/muted_text"
+            android:visibility="gone"
+            android:layout_marginEnd="12dp" />
+
+        <ImageView
+            android:id="@+id/ivPartChevron"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/chevron_right"
+            android:tint="?attr/colorControlNormal"
+            android:contentDescription="@string/next" />
+    </LinearLayout>
+
+</LinearLayout>

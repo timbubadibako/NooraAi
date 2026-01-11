@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- simple rounded white bar. Add shadow in theme or via elevation on container if needed -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/card_white"/>
+    <corners android:topLeftRadius="28dp" android:topRightRadius="28dp" android:bottomLeftRadius="8dp" android:bottomRightRadius="8dp"/>
+</shape>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Use a vertical container so topHeader and fragment_container stack naturally and responsively.
+         fragment_container uses weight to fill remaining space (no hardcoded marginTop). -->
+    <LinearLayout
+        android:id="@+id/contentColumn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Top header -->
+        <LinearLayout
+            android:id="@+id/topHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/card_white"
+            android:elevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Location chip: use an ImageView + TextView so icon is scaled to a small size -->
+                <LinearLayout
+                    android:id="@+id/location_chip"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_location_chip"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivLocationSmall"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/location"
+                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/icon_gray"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvLocationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kota, Provinsi"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <!-- Icons on the right (ensure scaleType + adjustViewBounds so PNG fits) -->
+                <ImageView
+                    android:id="@+id/ivCompass"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/compass"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivBell"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/bell"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/profile"
+                    app:tint="@color/icon_gray"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPrayerTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:textColor="@color/primary_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tvGreeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sholat memberikan makna malammu"
+                android:textSize="14sp"
+                android:textColor="@color/muted_text"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

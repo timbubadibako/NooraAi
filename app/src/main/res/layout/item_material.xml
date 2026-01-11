@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardMaterial"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardElevation="1dp">
+
+    <!-- Use an inner background drawable (white + border) so CardView itself stays neutral -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@drawable/bg_list_card"
+        android:minHeight="120dp">
+
+        <!-- thumbnail -->
+        <FrameLayout
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:id="@+id/ivThumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_thumbnail_placeholder"
+                android:contentDescription="thumbnail"
+                android:adjustViewBounds="true" />
+        </FrameLayout>
+
+        <!-- content column -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvMaterialTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingVertical="4dp"
+                android:text="Materi 1"
+                android:textSize="12sp"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/level_pils_primary"
+                android:layout_gravity="top|start"/>
+
+            <!-- title -->
+            <TextView
+                android:id="@+id/tvMaterialTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Mengenal Huruf Alif (ا) - Kho (خ)"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <!-- description -->
+            <TextView
+                android:id="@+id/tvMaterialSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Deskripsi Materi"
+                android:textSize="12sp"
+                android:textColor="@color/tab_text_color" />
+
+            <!-- footer: info + play -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvMaterialInfo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="0 Pembelajaran"
+                    android:textSize="12sp"
+                    android:textColor="@color/primary_color" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

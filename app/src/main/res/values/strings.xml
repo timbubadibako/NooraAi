@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Noora</string>
+
+    <!-- Login -->
+    <string name="login_title">Masuk</string>
+    <string name="hint_email">Email atau Username</string>
+    <string name="hint_password">Password</string>
+    <string name="action_login">Masuk</string>
+    <string name="register_here">Belum punya akun? Daftar</string>
+    <string name="google">Google</string>
+    <string name="email">Email</string>
+
+    <!-- Register -->
+    <string name="register_title">Daftar</string>
+    <string name="hint_full_name">Nama lengkap</string>
+    <string name="hint_confirm_password">Konfirmasi password</string>
+    <string name="action_register">Daftar</string>
+    <string name="already_have_account">Sudah punya akun? Masuk</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="next">Selanjutnya</string>
+
+    <!-- add inside existing strings.xml -->
+    <string name="kiblat_location_unavailable">Lokasi belum tersedia</string>
+    <!-- add these lines inside your strings.xml -->
+    <string name="player_collapse">Buka/Tutup pemutar</string>
+    <string name="player_prev">Sebelumnya</string>
+    <string name="player_play_pause">Putar atau jeda</string>
+    <string name="player_next">Berikutnya</string>
+    <string name="player_select_qari">Pilih Qari</string>
+    <!--  Profile Menu  -->
+    <string name="profile_title">Profil</string>
+    <string name="profile_avatar">Avatar pengguna</string>
+    <string name="logout">Logout</string>
+</resources>

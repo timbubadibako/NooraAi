@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <!-- placeholder warna gelap netral; ganti sesuai desain -->
+    <solid android:color="#82000000"/>
+    <corners android:radius="8dp"/>
+</shape>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Content area: child layouts will be inflated into this FrameLayout -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"/>
+
+    <!-- include custom bottom nav (single copy for all activities) -->
+    <include
+        android:id="@+id/include_bottom_nav"
+        layout="@layout/include_bottom_navigation"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

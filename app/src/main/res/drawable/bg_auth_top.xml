@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="#0EA28A"
+        android:endColor="#0CA07F"
+        android:angle="270" />
+    <!-- rounded bottom corners to create smooth overlapping card effect -->
+    <corners
+        android:bottomLeftRadius="28dp"
+        android:bottomRightRadius="28dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp" />
+</shape>
